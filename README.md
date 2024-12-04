@@ -1,4 +1,4 @@
-Assignment 3 Part 2
+# Assignment 3 Part 2
 
 
 This assignment continues further on from the previous part, but we now will include a load balancer, this helps to control the distribution of traffic across our two droplets. By following along with the instructions form part one in setting up our web server, the major differences for this assignment involves a new script to generate the index.html page that will display through our web server. The additional configurations however will be the inclusion of two test files in both of our droplets that must be supplied through the load balancer. Making the major contrast our load balancer being the center of this assignment.
