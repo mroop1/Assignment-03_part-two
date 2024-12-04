@@ -64,16 +64,16 @@ ___
 - Our server block configuration file will need to run the file server in addition to the web server itself.
 	- The original file looked like this;
 
-```nginx
-server {
-    listen 80; # applies to port 80 for http requests  
-    server_name _; # wildcard to look for any server name
+	```nginx
+	server {
+    	listen 80; # applies to port 80 for http requests  
+    	server_name _; # wildcard to look for any server name
 
-    location / {
-        root /var/lib/webgen/HTML; # serve files here
-        index index.html; # allows Nginx to serve index.html as default page
-    }
-} ````
+    	location / {
+        	root /var/lib/webgen/HTML; # serve files here
+        	index index.html; # allows Nginx to serve index.html as default page
+    	}
+	} ```
 
 - The new configuration must include the the file server so we can run our test files in the `/documents` directory
 	
@@ -142,3 +142,8 @@ To                         Action      From
 ---
 If everything works well, this setup will ensure a easily available web server that has the load balancing capabilities, along with our firewall security. Our web page will generate from a system that generates the html and serves system information daily at 5:00 via `systemd timers  `
 
+---
+## Links
+
+Load Balancer: http://24.199.77.186/
+Video: https://youtu.be/RpkuM_3PbqY
