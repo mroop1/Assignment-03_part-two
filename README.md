@@ -22,31 +22,33 @@ This assignment continues further on from the previous part, but we now will inc
 
 1. Create two droplets in digital ocean that will have "web" as the tag name, just change "given_hostname" to a preferred name;
 ___
-![[Pasted image 20241203203214.png]]
+![Screenshot 2024-12-03 203211](https://github.com/user-attachments/assets/66c2176b-f270-4f7b-8db4-10f6430fd2df)
+
 
 2. Create the load balancer by navigating to Settings>Networking>Load Balancers  
 - Select "**Create a Regional or Global Load Balancer**";
 ___
-![[Pasted image 20241203203625.png]]
+![Screenshot 2024-12-03 203619](https://github.com/user-attachments/assets/0d708c36-99c6-462b-ae3f-beebe0eab3af)
 
 - Select **Regional** 
 - Select **Sans Francisco 3**
 ___
-![[Pasted image 20241203203953.png]]
+![Screenshot 2024-12-03 203950](https://github.com/user-attachments/assets/70b19d9b-2ce3-4315-bfb0-09dc44ada001)
 
 - Select **External (Public)**
 ___
-![[Pasted image 20241203204113.png]]
+![Screenshot 2024-12-03 204110](https://github.com/user-attachments/assets/2f52c068-0058-440c-9428-2d11163dc518)
 
 - Search for "web" when Connecting Droplets
 - Ensure correct Forwarding Rules that takes the HTTP Protocol on Port 80
 ___
-![[Pasted image 20241203204144.png]]
+![Screenshot 2024-12-03 204137](https://github.com/user-attachments/assets/acbbfdca-92dc-4ff2-94a6-6fc2f329fbd0)
 
 - Give it a Name, just change the name from "given-load-balancer-name"
 - Select **Create Load Balancer**
 ___
-![[Pasted image 20241203204357.png]]
+![Screenshot 2024-12-03 204354](https://github.com/user-attachments/assets/758df6db-e8bb-42c2-88d2-f2ff79bd22e8)
+
 
 3. Complete the instructions from part one where we 
 	1. create the `webgen` user,  
@@ -61,7 +63,7 @@ ___
 5.  While completing the instructions for implementing the `nginx.conf` and server block files, we will have to make certain changes to run the new features for this assignment.
 - Our server block configuration file will need to run the file server in addition to the web server itself.
 	- The original file looked like this;
-`
+
 ```nginx
 server {
     listen 80; # applies to port 80 for http requests  
@@ -72,9 +74,9 @@ server {
         index index.html; # allows Nginx to serve index.html as default page
     }
 } ````
-`
+
 - The new configuration must include the the file server so we can run our test files in the `/documents` directory
-	`
+	
 ```nginx
 server {
         listen 80;
@@ -95,7 +97,7 @@ server {
 
 }
 ```
-`
+
 - Once we have made these updates to the files, remember to test and restart `Nginx`
 
 ```bash
@@ -130,12 +132,12 @@ To                         Action      From
 		- Test internally ("locally") by running;
 		- With the correct IP of the droplet of course 
 	```bash 
-curl http://[droplet-ip-address]
+	curl http://[droplet-ip-address]
 	```
 	2. Load Balancer
 		- Test the IP of the load balancer via browser and keep refreshing, this way we can make sure that request traffic is being distributed between our droplets
 		- With each refresh the IP shown in the webpage should alternate between each of the droplets IP.
-`
+
 
 ---
 If everything works well, this setup will ensure a easily available web server that has the load balancing capabilities, along with our firewall security. Our web page will generate from a system that generates the html and serves system information daily at 5:00 via `systemd timers  `
